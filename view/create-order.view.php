@@ -6,11 +6,23 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="">
+    <main>
+        <h3><?php echo $message; ?></h3>
+    <form method="post">
 
-    <label><input type="text" name="quantity">quantity</label>
-
-    
+    <!-- Permet d'entrer un nombre -->
+    <label for="quantity">Quantity<input type="number" name="quantity"></label> 
+    <!-- Permet de choisir entre plusieurs élément défini -->
+    <label for="product">
+        <select name="product">
+        <option value="ps5">PS5</option>
+        <option value="switch">Switch</option>
+        <option value="xbox">Xbox</option>
+        </select>
+    </label>
+        
+    <button type="submit">Envoyer</button>
     </form>
+    </main>
 </body>
 </html>
