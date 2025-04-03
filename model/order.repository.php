@@ -10,18 +10,20 @@ function findOrderByUser() {
 
 
 // permet de créer une commande
-function createOrder($product, $quantity) {
+function createOrder($product, $quantity,) {
 
     // permet de faire une vérification, pour créer la commande avec les critères indiqués
-        if ($quantity < 0 || $quantity > 3) 
-        {
-            return  false; 
-        } 
-            else {
+        if ($quantity < 0 )  {
 
+           throw new Exception("Impossible de mettre une quantité inférieur à 0");
+        } else if ($quantity > 3) {
+            throw new Exception("Impossible de mettre une quantité supérieur à 3");
+        }
+            else {
     $order = [
         "product" => $product,
-        "quantity"=> $quantity
+        "quantity"=> $quantity,
+        "createDate" => new DateTime()
     ];
     return $order;
 }

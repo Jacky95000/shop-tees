@@ -9,8 +9,11 @@
     <main>
 
 <!--  -->
-<?php if (array_key_exists("order", $_SESSION)) { ?>
-   <p>Commande en attente : <?php echo $_SESSION["order"]["quantity"]; ?> : <?php echo $_SESSION["order"]["product"]; ?> </p> <?php
+<?php if ($orderByUser) { ?>
+   <p>Commande en attente : <?php echo $orderByUser["quantity"]; ?> : <?php echo $orderByUser["product"]; ?> 
+   <p>Créé le <?php echo $orderByUser['createDate']->format('y-m-d'); ?></p>
+   
+   <?php
 } ?>
 
 
@@ -35,8 +38,7 @@
         
     <button type="submit">Envoyer</button>
     </form>
-
-            <h3><?php echo $message ?></h3>
+            
 
     </main>
 </body>

@@ -18,10 +18,10 @@ array_key_exists("product", $_POST))
     // si existe, la fonction create et save l'enregistre dans session, si la commande est possible et renvoi un message
     $order = createOrder($_POST['product'], $_POST['quantity']);
 
-           if ($order) {
+           try { $order = createOrder($_POST['product'], $_POST['quantity']);
             saveOrder($order);
-           } else { 
-            $message = 'impossible de créer la commande';
+           } catch (Exception $e) { 
+            $message = $e->getMessage();
     
 }
 // récupère la commande, sauvegardé dans session
