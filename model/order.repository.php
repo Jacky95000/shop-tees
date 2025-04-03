@@ -17,6 +17,8 @@ function createOrder ($product, $quantity) {
     ];
     return $order;
 }
+
+
 // Sauvegarde de la commande
 function saveOrder ($order) {
     $_SESSION ["order"] = $order;
