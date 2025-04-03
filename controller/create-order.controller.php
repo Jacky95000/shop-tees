@@ -8,20 +8,26 @@ require_once("../model/order.repository.php");
 session_start();
 
 $message = "";
+
+
 // cela permet de vérifier que quantity et product existe
 if (array_key_exists("quantity", $_POST) &&
 array_key_exists("product", $_POST)) 
 {
-    // si existe, la fonction create et save l'enregistre dans session
-    $order = createOrder($_POST['product'], $_POST['quantity']);
-           saveOrder($order);
 
+    // si existe, la fonction create et save l'enregistre dans session, si la commande est possible et renvoi un message
+    $order = createOrder($_POST['product'], $_POST['quantity']);
+
+           if ($order) {
+            saveOrder($order);
+           } else { 
+            $message = 'impossible de créer la commande';
     
 }
 // récupère la commande, sauvegardé dans session
 $orderByUser = findOrderByUser();
 
-
+}
 
 
 require_once("../view/create-order.view.php");
