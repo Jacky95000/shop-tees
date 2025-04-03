@@ -1,6 +1,7 @@
 <?php
 require_once("../config.php");
 require_once("../model/product-repository.php");
+require_once("../model/order.repository.php");
 
 
 // ça vérifie si une session existe, si elle existe, elle récupère les données, si non c'est une nouvelle session qui est créé.
@@ -11,16 +12,14 @@ $message = "";
 if (array_key_exists("quantity", $_POST) &&
 array_key_exists("product", $_POST)) 
 {
-    // permet de prendre les valeurs que l'utilisateur a envoyé
-    // Les données que l'utilisateur envoie sont stockée sur le serveur, l'utilisateur peut changer de pages elles seront conservées.
-    $order = [
-     "product" => $_POST["product"],
-    "quantity" => $_POST["quantity"]
+    // si existe, la fonction create et save l'enregistre dans session
+    $order = createOrder($_POST['product'], $_POST['quantity']);
+           saveOrder($order);
 
-    ];
-
-    $_SESSION["order"] = $order;
+    
 }
+// récupère la commande, sauvegardé dans session
+$orderByUser = findOrderByUser();
 
 
 
