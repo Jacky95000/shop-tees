@@ -7,6 +7,15 @@
 </head>
 <body>
     <main>
+
+<!--  -->
+<?php if (array_key_exists("order", $_SESSION)) { ?>
+   <p>Commande en attente : <?php echo $_SESSION["order"]["quantity"]; ?> : <?php echo $_SESSION["order"]["product"]; ?> </p> <?php
+} ?>
+
+
+
+
         <h3><?php echo $message; ?></h3>
     <form method="post">
 
@@ -15,14 +24,20 @@
     <!-- Permet de choisir entre plusieurs élément défini -->
     <label for="product">
         <select name="product">
-        <option value="ps5">PS5</option>
-        <option value="switch">Switch</option>
-        <option value="xbox">Xbox</option>
+
+        <!-- Boucle créer pour avoir tous les produits -->
+        <?php foreach ($products as $product) { ?>
+            <option value="<?php echo $product; ?>"><?php echo $product; ?> </option>
+            <?php
+        } ?>
         </select>
     </label>
         
     <button type="submit">Envoyer</button>
     </form>
+
+            <h3><?php echo $message ?></h3>
+
     </main>
 </body>
 </html>
