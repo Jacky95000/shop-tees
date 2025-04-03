@@ -1,5 +1,6 @@
 <?php
 require_once("../config.php");
+require_once("../model/product-repository.php");
 
 
 // ça vérifie si une session existe, si elle existe, elle récupère les données, si non c'est une nouvelle session qui est créé.
