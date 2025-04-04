@@ -14,7 +14,10 @@
    <p>Créé le <?php echo $orderByUser['createDate']->format('y-m-d'); ?></p>
    <p>Statut de votre commande : <?php echo $orderByUser["status"]; ?></p>
 
+
+   <form method="post">
    <button>Payer</button>
+   </form>
       <?php }
         else { ?>
     <p>Aucune commande à payer</p>
