@@ -12,7 +12,7 @@
 <?php if ($orderByUser) { ?>
    <p>Commande en attente : <?php echo $orderByUser["quantity"]; ?> : <?php echo $orderByUser["product"]; ?> 
    <p>Créé le <?php echo $orderByUser['createDate']->format('y-m-d'); ?></p>
-   
+   <p>Statut de votre commande : <?php echo $orderByUser["status"]; ?></p>
    <?php
 } ?>
 

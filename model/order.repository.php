@@ -20,10 +20,12 @@ function createOrder($product, $quantity,) {
             throw new Exception("Impossible de mettre une quantité supérieur à 3");
         }
             else {
+
     $order = [
         "product" => $product,
         "quantity"=> $quantity,
-        "createDate" => new DateTime()
+        "createDate" => new DateTime(),
+        "status" => "CART"
     ];
     return $order;
 }
