@@ -10,10 +10,10 @@ $message = "";
 $orderByUser = findOrderByUser ();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $orderByUser['status'] ="SENT";
+    $orderByUser['status'] ="SHIPPED";
     saveOrder($orderByUser);
     $message = "Commande expédié.";
 }
 
-require_once('../view/shipOrderView.php');
+require_once('../view/ship-order.view.php');
 ?>
